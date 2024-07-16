@@ -1,12 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { register, reset } from '../../slices/authSlice'
 import { AuthContainer, RegisterContent, Subtitle, Title } from './styles'
+import Message from '../../components/Message/Message'
 
 const Register = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+
+  const dispatch = useDispatch()
+
+  const { loading, error } = useSelector((state) => state.auth)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -16,7 +23,14 @@ const Register = () => {
       password,
       confirmPassword,
     }
+
+    dispatch(register(user))
   }
+
+  // Clean all auth states
+  useEffect(() => {
+    dispatch(reset())
+  }, [dispatch])
 
   return (
     <AuthContainer>
@@ -48,7 +62,13 @@ const Register = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
             value={confirmPassword}
           />
-          <button type='submit'>Cadastrar</button>
+          {!loading && (
+            <button type='submit' disabled={loading}>
+              {!loading ? 'Cadastrar' : 'Aguarde...'}
+            </button>
+          )}
+
+          {error && <Message msg={error} type='error' />}
         </form>
         <div className='auth-panel'>
           <p>Tem uma conta?</p>
