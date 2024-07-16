@@ -2,7 +2,6 @@ import { api, requestConfig } from '../utils/config'
 
 // Register an user
 const register = async (data) => {
-  console.log(data)
   const config = requestConfig('POST', data)
 
   try {
@@ -10,7 +9,6 @@ const register = async (data) => {
 
     if (!response.ok) {
       const errorData = await response.json()
-      console.log(errorData)
       throw new Error(errorData.errors[0])
     }
 
@@ -22,13 +20,18 @@ const register = async (data) => {
 
     return res
   } catch (error) {
-    console.log(error)
     return { errors: [{ message: error.message }]}
   }
 }
 
+// Logout an user
+const logout = () => {
+  localStorage.removeItem('user')
+}
+
 const authService = {
   register,
+  logout,
 }
 
 export default authService

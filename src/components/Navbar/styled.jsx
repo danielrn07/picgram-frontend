@@ -31,6 +31,11 @@ export const NavbarContainer = styled.div`
     color: rgb(250, 250, 250);
   }
 
+  .logout {
+    color: rgb(250, 250, 250);
+    cursor: pointer;
+  }
+
   @media (min-width: 769px) {
     padding: 2rem 20rem;
 

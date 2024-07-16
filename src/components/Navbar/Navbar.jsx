@@ -1,12 +1,23 @@
 import { BsFillCameraFill, BsFillPersonFill, BsHouseDoorFill } from 'react-icons/bs'
-import { useSelector } from 'react-redux'
-import { Link, NavLink } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
+import { logout, reset } from '../../slices/authSlice'
 import { NavLinks, NavbarContainer } from './styled'
 
 const Navbar = () => {
   const { auth } = useAuth()
   const { user } = useSelector((state) => state.auth)
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+
+    navigate('/login')
+  }
 
   return (
     <NavbarContainer>
@@ -34,9 +45,7 @@ const Navbar = () => {
               <BsFillPersonFill />
             </NavLink>
 
-            <NavLink to='/logout'>
-              Sair
-            </NavLink>
+            <span className='logout' onClick={handleLogout}>Sair</span>
           </>
         ) : (
           <>
