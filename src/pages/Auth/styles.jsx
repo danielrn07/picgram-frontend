@@ -39,14 +39,14 @@ export const AuthContainer = styled.div`
   }
 `
 
-export const RegisterContent = styled.div`
+export const AuthContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.4rem;
   gap: 3.2rem;
   border: 1px solid rgb(230, 230, 230);
-  padding: 3.2rem 0;
+  padding: 3.2rem;
 `
 
 export const Title = styled.h1`

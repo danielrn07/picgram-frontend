@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { register, reset } from '../../slices/authSlice'
-import { AuthContainer, RegisterContent, Subtitle, Title } from './styles'
+import { AuthContainer, AuthContent, Subtitle, Title } from './styles'
 import Message from '../../components/Message/Message'
 
 const Register = () => {
@@ -34,9 +34,9 @@ const Register = () => {
 
   return (
     <AuthContainer>
-      <RegisterContent>
+      <AuthContent>
         <Title>PicGram</Title>
-        <Subtitle>Cadastre-se para ver fotos e vídeos dos seus amigos.</Subtitle>
+        <Subtitle>Cadastre-se para ver fotos de amigos.</Subtitle>
         <form onSubmit={handleSubmit}>
           <input
             type='text'
@@ -74,7 +74,7 @@ const Register = () => {
           <p>Tem uma conta?</p>
           <Link to='/login'>Conecte-se</Link>
         </div>
-      </RegisterContent>
+      </AuthContent>
     </AuthContainer>
   )
 }

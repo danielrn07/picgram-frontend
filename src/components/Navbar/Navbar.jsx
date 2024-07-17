@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <NavbarContainer>
-      <Link className='logo' to='/'>
+      <Link to='/' className='logo'>
         PicGram
       </Link>
 
@@ -37,15 +37,19 @@ const Navbar = () => {
               <BsHouseDoorFill />
             </NavLink>
 
-            <NavLink to={`/users/${user._id}`}>
-              <BsFillCameraFill />
-            </NavLink>
+            {user && (
+              <NavLink to={`/users/${user._id}`}>
+                <BsFillCameraFill />
+              </NavLink>
+            )}
 
             <NavLink to='/profile'>
               <BsFillPersonFill />
             </NavLink>
 
-            <span className='logout' onClick={handleLogout}>Sair</span>
+            <span className='logout' onClick={handleLogout}>
+              Sair
+            </span>
           </>
         ) : (
           <>
