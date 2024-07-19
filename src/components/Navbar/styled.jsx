@@ -6,6 +6,9 @@ export const NavbarContainer = styled.div`
   align-items: center;
   background-color: #242424;
   padding: 2rem;
+  top: 0;
+  z-index: 2;
+  position: sticky;
   font-size: 1.4rem;
 
   .logo {

@@ -7,6 +7,7 @@ import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
 import EditProfile from './pages/EditProfile/EditProfile'
 import Home from './pages/Home/Home'
+import Profile from './pages/Profile/Profile'
 
 const App = () => {
   const { auth, loading } = useAuth()
@@ -23,6 +24,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={auth ? <Home /> : <Navigate to='/login' />} />
             <Route path='/profile' element={auth ? <EditProfile /> : <Navigate to='/login' />} />
+            <Route path='/users/:id' element={auth ? <Profile /> : <Navigate to='/login' />} />
             <Route path='/login' element={!auth ? <Login /> : <Navigate to='/' />} />
             <Route path='/register' element={!auth ? <Register /> : <Navigate to='/' />} />
           </Routes>
