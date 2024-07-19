@@ -3,7 +3,7 @@ import { BsFillEyeFill, BsPencilFill, BsXLg } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import Message from '../../components/Message/Message'
-import { getUserPhotos, publishPhoto, resetMessage } from '../../slices/photoSlice'
+import { deletePhoto, getUserPhotos, publishPhoto, resetMessage } from '../../slices/photoSlice'
 import { getUserDetails } from '../../slices/userSlice'
 import { uploads } from '../../utils/config'
 import {
@@ -54,6 +54,12 @@ const Profile = () => {
     setImage(image)
   }
 
+  const resetComponentMessage = () => {
+    setTimeout(() => {
+      dispatch(resetMessage())
+    }, 2000)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -73,9 +79,13 @@ const Profile = () => {
 
     setTitle('')
 
-    setTimeout(() => {
-      dispatch(resetMessage())
-    }, 2000)
+    resetComponentMessage()
+  }
+
+  const handleDeletePhoto = (id) => {
+    dispatch(deletePhoto(id))
+
+    resetComponentMessage()
   }
 
   return (
@@ -138,7 +148,7 @@ const Profile = () => {
                       <BsFillEyeFill />
                     </Link>
                     <BsPencilFill />
-                    <BsXLg />
+                    <BsXLg onClick={() => handleDeletePhoto(photo._id)} />
                   </ActionsContainer>
                 ) : (
                   <Link to={`/photos/${photo._id}`}>Ver</Link>
