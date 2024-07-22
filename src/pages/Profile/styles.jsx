@@ -80,4 +80,26 @@ export const ActionsContainer = styled.div`
   }
 `
 
-export const EditPhotoContainer = styled.div``
+export const EditPhotoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 1.6rem;
+  border-bottom: 1px solid rgb(230, 230, 230);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  form input {
+    padding: 0.8rem;
+  }
+
+  form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+`

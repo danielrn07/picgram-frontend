@@ -7,6 +7,7 @@ import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
 import EditProfile from './pages/EditProfile/EditProfile'
 import Home from './pages/Home/Home'
+import Photo from './pages/Photo/Photo'
 import Profile from './pages/Profile/Profile'
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
             <Route path='/users/:id' element={auth ? <Profile /> : <Navigate to='/login' />} />
             <Route path='/login' element={!auth ? <Login /> : <Navigate to='/' />} />
             <Route path='/register' element={!auth ? <Register /> : <Navigate to='/' />} />
+            <Route path='/photos/:id' element={auth ? <Photo /> : <Navigate to='/login' />} />
           </Routes>
         </div>
         <Footer />

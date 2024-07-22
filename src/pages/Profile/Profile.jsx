@@ -176,7 +176,7 @@ const Profile = () => {
 
           <EditPhotoContainer className='hide' ref={editPhotoForm}>
             <p>Editando</p>
-            {editImage && <img src={`${uploads}/photos/${editImage}`} alt={editTitle} />}
+            {editImage && <Photo src={`${uploads}/photos/${editImage}`} alt={editTitle} />}
 
             <form onSubmit={handleUpdate}>
               <input type='text' onChange={(e) => setEditTitle(e.target.value)} value={editTitle} />
