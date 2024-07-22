@@ -79,3 +79,5 @@ export const ActionsContainer = styled.div`
     cursor: pointer;
   }
 `
+
+export const EditPhotoContainer = styled.div``

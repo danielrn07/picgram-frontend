@@ -84,6 +84,10 @@ a {
   display: flex;
 }
 
+div .hide {
+  display: none;
+}
+
 input,
 textarea {
   font-size: 1.4rem;
