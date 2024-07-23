@@ -11,8 +11,16 @@ export const PhotoItemContainer = styled.div`
   }
 `
 
+export const CreatedBy = styled.div`
+  margin-bottom: 0.8rem;
+`
+
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 export const PhotoTitle = styled.h1`
-  text-align: center;
   font-size: 1.6rem;
 `
 
