@@ -11,10 +11,6 @@ export const NavbarContainer = styled.div`
   position: sticky;
   font-size: 1.4rem;
 
-  .logo {
-    flex-grow: 1;
-  }
-
   form {
     position: relative;
     display: flex;

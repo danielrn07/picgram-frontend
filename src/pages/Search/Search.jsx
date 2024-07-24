@@ -1,25 +1,26 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
-import { getPhotos } from '../../slices/photoSlice'
-import { HomeContainer } from './styles'
+import { useQuery } from '../../hooks/useQuery'
+import { searchPhotos } from '../../slices/photoSlice'
+import { SearchContainer } from './styles'
 
-const Home = () => {
+const Search = () => {
+  const query = useQuery()
+  const search = query.get('q')
+
   const dispatch = useDispatch()
+
   const { user } = useSelector((state) => state.auth)
   const { photos, loading } = useSelector((state) => state.photo)
 
-  // Load all photos
   useEffect(() => {
-    dispatch(getPhotos())
-  }, [dispatch])
-
-  if (loading) {
-    return <p>Carregando...</p>
-  }
+    dispatch(searchPhotos(search))
+  }, [dispatch, search])
 
   return (
-    <HomeContainer>
+    <SearchContainer>
+      <p>Você está pesquisando por: {search}</p>
       {photos &&
         photos.map((photo) => (
           <div className='photo-container' key={photo._id}>
@@ -27,8 +28,8 @@ const Home = () => {
           </div>
         ))}
       {photos && photos.length === 0 && <h2>Ainda não há fotos publicadas.</h2>}
-    </HomeContainer>
+    </SearchContainer>
   )
 }
 
-export default Home
+export default Search

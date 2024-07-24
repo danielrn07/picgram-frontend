@@ -57,11 +57,13 @@ const Photo = () => {
             {photo.comments.map((comment) => (
               <div key={comment.comment}>
                 <div className='user-container'>
-                  {comment.userImage && (
+                  {comment.userImage ? (
                     <ProfileImage
                       src={`${uploads}/users/${comment.userImage}`}
                       alt={`Foto de perfil do usuário ${comment.userName}`}
                     />
+                  ) : (
+                    <ProfileImage src='/ic_user.svg' />
                   )}
                   <span>
                     <Link className='user-name' to={`/users/${comment.userId}`}>
