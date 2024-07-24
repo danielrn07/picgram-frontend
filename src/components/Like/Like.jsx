@@ -12,7 +12,7 @@ const Like = ({ photo, user, handleLike }) => {
             <BsHeart onClick={() => handleLike(photo)} />
           )}
           <p>
-            {photo.likes.length} {photo.likes.length <= 1 ? 'like' : 'likes'}
+            {photo.likes.length}
           </p>
         </LikeContainer>
       )}

@@ -1,3 +1,4 @@
+import { BsChat } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { like } from '../../slices/photoSlice'
@@ -26,8 +27,10 @@ const PhotoItem = ({ photo }) => {
         {photo.image && <Photo src={`${uploads}/photos/${photo.image}`} alt={`photo.title`} />}
         <InfoContainer>
           <Like photo={photo} user={user} handleLike={handleLike} />
-          <PhotoTitle>{photo.title}</PhotoTitle>
+          <BsChat />
+          {photo.comments && <p>{photo.comments.length}</p>}
         </InfoContainer>
+        <PhotoTitle>{photo.title}</PhotoTitle>
       </div>
     </PhotoItemContainer>
   )

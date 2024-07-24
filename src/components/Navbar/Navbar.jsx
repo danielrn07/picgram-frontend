@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { logout, reset } from '../../slices/authSlice'
-import { NavLinks, NavbarContainer } from './styled'
+import { NavLinks, NavbarContainer } from './styles'
 
 const Navbar = () => {
   const { auth } = useAuth()

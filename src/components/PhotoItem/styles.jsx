@@ -17,7 +17,12 @@ export const CreatedBy = styled.div`
 
 export const InfoContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+
+  svg {
+    font-size: 1.6rem;
+  }
 `
 
 export const PhotoTitle = styled.h1`
