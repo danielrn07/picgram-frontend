@@ -26,7 +26,7 @@ export const AuthContainer = styled.div`
     .auth-panel {
       display: flex;
       gap: 0.8rem;
-      border-top: 1px solid #ccc;
+      border-top: 1px solid rgb(230, 230, 230);
       width: 80%;
       justify-content: center;
       padding-top: 3.2rem;

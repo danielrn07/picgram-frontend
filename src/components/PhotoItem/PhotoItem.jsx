@@ -24,7 +24,9 @@ const PhotoItem = ({ photo }) => {
             {photo.userName}
           </Link>{' '}
         </CreatedBy>
-        {photo.image && <Photo src={`${uploads}/photos/${photo.image}`} alt={`photo.title`} />}
+        <Link className='user-name' to={`/photos/${photo._id}`}>
+          {photo.image && <Photo src={`${uploads}/photos/${photo.image}`} alt={`photo.title`} />}
+        </Link>
         <InfoContainer>
           <Like photo={photo} user={user} handleLike={handleLike} />
           <BsChat />
